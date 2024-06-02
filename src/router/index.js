@@ -1,9 +1,9 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import WarehouseIndex from '../views/WarehouseIndex.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import WarehouseIndex from '../views/WarehouseIndex.vue';
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -21,11 +21,11 @@ const routes = [
     name: 'warehouses',
     component: WarehouseIndex
   }
-]
+];
 
 const router = new VueRouter({
   mode: 'history',
   routes
-})
+});
 
-export default router
+export default router;
