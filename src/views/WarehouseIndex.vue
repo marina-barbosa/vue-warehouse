@@ -1,7 +1,12 @@
 <template>
   <div>
     <h1>Galpões Cadastrados</h1>
-
+    <input
+      v-model="term"
+      class="pesquisa"
+      type="text"
+      placeholder="Buscar Galpão"
+    />
     <table>
       <thead>
         <tr>
@@ -11,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="warehouse in warehouses" :key="warehouse.id">
+        <tr v-for="warehouse in filteredWarehouses" :key="warehouse.id">
           <td>{{ warehouse.code }}</td>
           <td>{{ warehouse.name }}</td>
           <td>{{ warehouse.city }}</td>
@@ -46,6 +51,7 @@ export default {
   data() {
     return {
       warehouses: [],
+      term: "",
     };
   },
   async mounted() {
@@ -59,10 +65,25 @@ export default {
       this.warehouses = await response.json();
     },
   },
+  computed: {
+    filteredWarehouses() {
+      return this.warehouses.filter((warehouse) =>
+        warehouse.name.toLowerCase().includes(this.term.toLowerCase())
+      );
+    },
+  },
 };
 </script>
 
 <style scoped>
+.pesquisa {
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+}
 table {
   border: 1px solid;
   border-collapse: collapse;
