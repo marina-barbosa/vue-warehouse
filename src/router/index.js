@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import WarehouseIndex from '../views/WarehouseIndex.vue';
+import WarehouseNew from '../views/WarehouseNew.vue';
 
 Vue.use(VueRouter);
 
@@ -20,6 +21,11 @@ const routes = [
     path: '/warehouses',
     name: 'warehouses',
     component: WarehouseIndex
+  },
+  {
+    path: '/warehouse/new',
+    name: 'new',
+    component: WarehouseNew
   }
 ];
 

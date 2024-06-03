@@ -3,6 +3,7 @@
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/warehouses">Galpões Cadastrados</router-link> |
+      <router-link to="/warehouse/new">Cadastrar Galpão</router-link> |
       <router-link to="/about">About</router-link>
     </nav>
   </div>
