@@ -18,12 +18,31 @@
         </tr>
       </tbody>
     </table>
+
+    <br />
+
+    <div v-for="warehouse in warehouses" :key="warehouse.id">
+      <Warehouse
+        :id="warehouse.id"
+        :name="warehouse.name"
+        :code="warehouse.code"
+        :address="warehouse.address"
+        :city="warehouse.city"
+        :area="warehouse.area"
+        :description="warehouse.description"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import Warehouse from "../components/Warehouse.vue";
+
 export default {
   name: "WarehouseIndex",
+  components: {
+    Warehouse,
+  },
   data() {
     return {
       warehouses: [],
