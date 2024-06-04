@@ -1,28 +1,17 @@
 <template>
   <div>
     <h1>Galpões Cadastrados</h1>
-    <input
+    <v-text-field
+      label="Buscar Galpão"
       v-model="term"
-      class="pesquisa"
-      type="text"
-      placeholder="Buscar Galpão"
-    />
-    <table>
-      <thead>
-        <tr>
-          <th>Código</th>
-          <th>Nome</th>
-          <th>Cidade</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="warehouse in filteredWarehouses" :key="warehouse.id">
-          <td>{{ warehouse.code }}</td>
-          <td>{{ warehouse.name }}</td>
-          <td>{{ warehouse.city }}</td>
-        </tr>
-      </tbody>
-    </table>
+      class="my-5"
+    ></v-text-field>
+
+    <v-card dark>
+      <v-card-text>
+        <WarehouseTable :warehouses="filteredWarehouses" />
+      </v-card-text>
+    </v-card>
 
     <br />
 
@@ -42,11 +31,13 @@
 
 <script>
 import Warehouse from "../components/Warehouse.vue";
+import WarehouseTable from "../components/WarehouseTable.vue";
 
 export default {
   name: "WarehouseIndex",
   components: {
     Warehouse,
+    WarehouseTable,
   },
   data() {
     return {
